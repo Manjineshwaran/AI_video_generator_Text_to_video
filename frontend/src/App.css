@@ -1,0 +1,22 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 20px;
+  flex: 1;
+  width: 100%;
+}
+.home-page h1 {
+  text-align: center;
+
+}
+.home-page p {
+  text-align: center;
+}
+
+/* Add more global styles as needed */
