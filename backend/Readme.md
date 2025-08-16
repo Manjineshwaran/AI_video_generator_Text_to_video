@@ -1,5 +1,11 @@
 # Text-to-Video Generator - Backend
 
+## 🏗 AI Architecture Overview
+
+Text Prompt → Image Generation → Transition Creation → Video Compilation
+
+This project approaches text-to-video generation by first using Stable Diffusion to create key frames from text prompts, then blending these images with smooth transitions using PIL, and finally compiling them into a video with OpenCV. The implementation emphasizes modularity, error handling, and configurable output settings (duration, frame rate). The solution balances simplicity with extensibility, providing a foundation that could easily be enhanced with parallel processing, advanced transitions, or additional post-production features.
+
 ## 🏗 Architecture Overview
 
 The backend is built using a modern, scalable, and maintainable architecture following these principles:
