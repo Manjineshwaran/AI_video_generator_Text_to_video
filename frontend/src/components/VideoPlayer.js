@@ -3,12 +3,14 @@ import React from 'react';
 const VideoPlayer = ({ videoPath }) => {
   if (!videoPath) return null;
 
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+  
   // videoPath is now just the filename
   console.log('VideoPlayer - videoPath:', videoPath);
-  console.log('VideoPlayer - test video URL:', `http://localhost:8000/test-video/${encodeURIComponent(videoPath)}`);
-  console.log('VideoPlayer - streaming URL:', `http://localhost:8000/stream-video/${encodeURIComponent(videoPath)}`);
-  console.log('VideoPlayer - static URL:', `http://localhost:8000/static/videos/${encodeURIComponent(videoPath)}`);
-  console.log('VideoPlayer - download URL:', `http://localhost:8000/download-video?path=${encodeURIComponent(videoPath)}`);
+  console.log('VideoPlayer - test video URL:', `${API_BASE_URL}/test-video/${encodeURIComponent(videoPath)}`);
+  console.log('VideoPlayer - streaming URL:', `${API_BASE_URL}/stream-video/${encodeURIComponent(videoPath)}`);
+  console.log('VideoPlayer - static URL:', `${API_BASE_URL}/static/videos/${encodeURIComponent(videoPath)}`);
+  console.log('VideoPlayer - download URL:', `${API_BASE_URL}/download-video?path=${encodeURIComponent(videoPath)}`);
 
   return (
     <div className="video-player">
@@ -25,15 +27,15 @@ const VideoPlayer = ({ videoPath }) => {
         onLoadStart={() => console.log('Video loading started')}
         onLoadedData={() => console.log('Video data loaded')}
       >
-        <source src={`http://localhost:8000/test-video/${encodeURIComponent(videoPath)}`} type="video/mp4" />
-        <source src={`http://localhost:8000/stream-video/${encodeURIComponent(videoPath)}`} type="video/mp4" />
-        <source src={`http://localhost:8000/static/videos/${encodeURIComponent(videoPath)}`} type="video/mp4" />
-        <source src={`http://localhost:8000/download-video?path=${encodeURIComponent(videoPath)}`} type="video/mp4" />
+        <source src={`${API_BASE_URL}/test-video/${encodeURIComponent(videoPath)}`} type="video/mp4" />
+        <source src={`${API_BASE_URL}/stream-video/${encodeURIComponent(videoPath)}`} type="video/mp4" />
+        <source src={`${API_BASE_URL}/static/videos/${encodeURIComponent(videoPath)}`} type="video/mp4" />
+        <source src={`${API_BASE_URL}/download-video?path=${encodeURIComponent(videoPath)}`} type="video/mp4" />
         Your browser does not support the video tag.
       </video> */}
       <div className="video-actions">
         <a 
-          href={`http://localhost:8000/download-video?path=${encodeURIComponent(videoPath)}&download=true`} 
+          href={`${API_BASE_URL}/download-video?path=${encodeURIComponent(videoPath)}&download=true`} 
           download
           className="download-btn"
         >

@@ -30,6 +30,8 @@ const VideoList = () => {
     return <div>No videos found. Generate some first!</div>;
   }
 
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+
   return (
     <div className="video-list">
       <h2>Your Generated Videos</h2>
@@ -37,13 +39,13 @@ const VideoList = () => {
         {videos.map((video, index) => (
           <div key={index} className="video-item">
             <video controls width="100%">
-              <source src={`http://localhost:8000/download-video?path=${video}`} type="video/mp4" />
+              <source src={`${API_BASE_URL}/download-video?path=${video}`} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <div className="video-meta">
               <span>{video.split('/').pop()}</span>
               <a 
-                href={`http://localhost:8000/download-video?path=${video}`} 
+                href={`${API_BASE_URL}/download-video?path=${video}`} 
                 download
                 className="download-btn"
               >
